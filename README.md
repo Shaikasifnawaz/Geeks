@@ -14,6 +14,14 @@ A college football data analytics platform with an AI-powered database professor
 
 1. Create a PostgreSQL database on Render
 2. Note the connection details (host, port, database name, user, password)
+3. Update the `.env` file in the `backend` directory with your database connection details:
+   ```
+   DB_HOST=dpg-d4nvetf5r7bs73cacul0-a.oregon-postgres.render.com
+   DB_PORT=5432
+   DB_NAME=ncaafb_databaseguvi
+   DB_USER=ncaafb_databaseguvi_user
+   DB_PASSWORD=DFwIzA9EYnj8W0fwwPY7mKs9XlF02XCi
+   ```
 
 ### 3. Environment Variables
 
@@ -40,7 +48,17 @@ Set the following environment variables for all services:
 - Build Command: `pip install -r requirements.txt`
 - Start Command: `streamlit run frontend/app.py --server.port=$PORT --server.address=0.0.0.0`
 
-### 5. Update Frontend Configuration
+### 5. Run Data Pipeline
+
+After setting up your database and environment variables, run the data pipeline to populate your database with data from SportsRadar:
+
+```bash
+python run_pipeline.py
+```
+
+This will fetch data from SportsRadar API and populate your database.
+
+### 6. Update Frontend Configuration
 
 After deploying your backend services, update the frontend environment variables:
 - `API_BASE_URL` - URL of your Data API service
