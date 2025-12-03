@@ -1,0 +1,26 @@
+# NCAAFB Backend Pipeline Dependencies
+
+# API and HTTP requests
+requests>=2.31.0
+
+# Environment variables
+python-dotenv>=1.0.0
+
+# PostgreSQL database
+psycopg2-binary>=2.9.9
+
+# LLM Integration - Google Gemini
+google-generativeai>=0.3.0
+
+# REST API Framework (for LLM API endpoint)
+flask>=3.0.0
+flask-cors>=4.0.0
+
+# Frontend dependencies
+streamlit>=1.28.0
+requests>=2.31.0
+
+# Optional: For MySQL support (uncomment if using MySQL)
+# mysql-connector-python>=8.2.0
+# PyMySQL>=1.1.0
+

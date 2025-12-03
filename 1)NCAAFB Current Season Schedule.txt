@@ -1,0 +1,316 @@
+1)NCAAFB Current Season Schedule
+import requests
+
+url = "https://api.sportradar.com/ncaafb/trial/v7/en/games/current_season/schedule.json"
+
+headers = {
+    "accept": "application/json",
+    "x-api-key": "6dP4ysShCJmktrukYUWKueZNV9A6aL8tCU89ck2L"
+}
+
+response = requests.get(url, headers=headers)
+
+print(response.text)
+
+
+2)NCAAFB Current Week Schedule
+import requests
+
+url = "https://api.sportradar.com/ncaafb/trial/v7/en/games/current_week/schedule.json"
+
+headers = {
+    "accept": "application/json",
+    "x-api-key": "6dP4ysShCJmktrukYUWKueZNV9A6aL8tCU89ck2L"
+}
+
+response = requests.get(url, headers=headers)
+
+print(response.text)
+
+
+3)NCAAFB Daily Change Log
+import requests
+
+url = "https://api.sportradar.com/ncaafb/trial/v7/en/league/2025/09/01/changes.json"
+
+headers = {
+    "accept": "application/json",
+    "x-api-key": "6dP4ysShCJmktrukYUWKueZNV9A6aL8tCU89ck2L"
+}
+
+response = requests.get(url, headers=headers)
+
+print(response.text)
+
+
+4)NCAAFB Game Boxscore
+
+import requests
+
+url = "https://api.sportradar.com/ncaafb/trial/v7/en/games/5c0c9ff0-3d99-4844-bc73-03f1719be4f8/boxscore.json"
+
+headers = {
+    "accept": "application/json",
+    "x-api-key": "6dP4ysShCJmktrukYUWKueZNV9A6aL8tCU89ck2L"
+}
+
+response = requests.get(url, headers=headers)
+
+print(response.text)
+
+
+5)NCAAFB Game Play-by-Play
+import requests
+
+url = "https://api.sportradar.com/ncaafb/trial/v7/en/games/f1b5835a-582a-4e69-afac-8d8984b7af36/pbp.json"
+
+headers = {
+    "accept": "application/json",
+    "x-api-key": "6dP4ysShCJmktrukYUWKueZNV9A6aL8tCU89ck2L"
+}
+
+response = requests.get(url, headers=headers)
+
+print(response.text)
+
+6)NCAAFB Game Roster
+
+import requests
+
+url = "https://api.sportradar.com/ncaafb/trial/v7/en/games/f1b5835a-582a-4e69-afac-8d8984b7af36/roster.json"
+
+headers = {
+    "accept": "application/json",
+    "x-api-key": "6dP4ysShCJmktrukYUWKueZNV9A6aL8tCU89ck2L"
+}
+
+response = requests.get(url, headers=headers)
+
+print(response.text)
+
+
+7)NCAAFB Game Statistics
+import requests
+
+url = "https://api.sportradar.com/ncaafb/trial/v7/en/games/f1b5835a-582a-4e69-afac-8d8984b7af36/statistics.json"
+
+headers = {
+    "accept": "application/json",
+    "x-api-key": "6dP4ysShCJmktrukYUWKueZNV9A6aL8tCU89ck2L"
+}
+
+response = requests.get(url, headers=headers)
+
+print(response.text)
+
+8)NCAAFB League Hierarchy
+import requests
+
+url = "https://api.sportradar.com/ncaafb/trial/v7/en/league/hierarchy.json"
+
+headers = {
+    "accept": "application/json",
+    "x-api-key": "6dP4ysShCJmktrukYUWKueZNV9A6aL8tCU89ck2L"
+}
+
+response = requests.get(url, headers=headers)
+
+print(response.text)
+
+
+9)NCAAFB Player Profile
+import requests
+
+url = "https://api.sportradar.com/ncaafb/trial/v7/en/players/3992e590-8f40-11ec-9f33-1965c9c46e44/profile.json"
+
+headers = {
+    "accept": "application/json",
+    "x-api-key": "6dP4ysShCJmktrukYUWKueZNV9A6aL8tCU89ck2L"
+}
+
+response = requests.get(url, headers=headers)
+
+print(response.text)     
+
+10)NCAAFB Postgame Standings
+import requests
+
+url = "https://api.sportradar.com/ncaafb/trial/v7/en/seasons/2025/REG/standings/season.json"
+
+headers = {
+    "accept": "application/json",
+    "x-api-key": "6dP4ysShCJmktrukYUWKueZNV9A6aL8tCU89ck2L"
+}
+
+response = requests.get(url, headers=headers)
+
+print(response.text)
+
+11)NCAAFB Rankings (By Week)
+import requests
+
+url = "https://api.sportradar.com/ncaafb/trial/v7/en/polls/AP25/2025/01/rankings.json"
+
+headers = {
+    "accept": "application/json",
+    "x-api-key": "6dP4ysShCJmktrukYUWKueZNV9A6aL8tCU89ck2L"
+}
+
+response = requests.get(url, headers=headers)
+
+print(response.text)
+
+12)NCAAFB Rankings (Current Week)
+import requests
+
+url = "https://api.sportradar.com/ncaafb/trial/v7/en/polls/AP25/2025/rankings.json"
+
+headers = {
+    "accept": "application/json",
+    "x-api-key": "6dP4ysShCJmktrukYUWKueZNV9A6aL8tCU89ck2L"
+}
+
+response = requests.get(url, headers=headers)
+
+print(response.text)
+
+13)NCAAFB Season Schedule
+import requests
+
+url = "https://api.sportradar.com/ncaafb/trial/v7/en/games/2025/REG/schedule.json"
+
+headers = {
+    "accept": "application/json",
+    "x-api-key": "6dP4ysShCJmktrukYUWKueZNV9A6aL8tCU89ck2L"
+}
+
+response = requests.get(url, headers=headers)
+
+print(response.text)
+
+14)NCAAFB Seasonal Statistics
+import requests
+
+url = "https://api.sportradar.com/ncaafb/trial/v7/en/seasons/2025/REG/teams/19775492-f1eb-4bc5-9e15-078ebd689c0f/statistics.json"
+
+headers = {
+    "accept": "application/json",
+    "x-api-key": "6dP4ysShCJmktrukYUWKueZNV9A6aL8tCU89ck2L"
+}
+
+response = requests.get(url, headers=headers)
+
+print(response.text)
+
+15)NCAAFB Seasons
+import requests
+
+url = "https://api.sportradar.com/ncaafb/trial/v7/en/league/seasons.json"
+
+headers = {
+    "accept": "application/json",
+    "x-api-key": "6dP4ysShCJmktrukYUWKueZNV9A6aL8tCU89ck2L"
+}
+
+response = requests.get(url, headers=headers)
+
+print(response.text)
+
+16)NCAAFB Team Roster
+import requests
+
+url = "https://api.sportradar.com/ncaafb/trial/v7/en/teams/19775492-f1eb-4bc5-9e15-078ebd689c0f/full_roster.json"
+
+headers = {
+    "accept": "application/json",
+    "x-api-key": "6dP4ysShCJmktrukYUWKueZNV9A6aL8tCU89ck2L"
+}
+
+response = requests.get(url, headers=headers)
+
+print(response.text)
+
+17)NCAAFB Teams
+import requests
+
+url = "https://api.sportradar.com/ncaafb/trial/v7/en/league/teams.json"
+
+headers = {
+    "accept": "application/json",
+    "x-api-key": "6dP4ysShCJmktrukYUWKueZNV9A6aL8tCU89ck2L"
+}
+
+response = requests.get(url, headers=headers)
+
+print(response.text)
+
+18)NCAAFB Tournament Lisimport requests
+
+url = "https://api.sportradar.com/ncaafb/trial/v7/en/tournaments/2025/REG/schedule.json"
+
+headers = {
+    "accept": "application/json",
+    "x-api-key": "6dP4ysShCJmktrukYUWKueZNV9A6aL8tCU89ck2L"
+}
+
+response = requests.get(url, headers=headers)
+
+print(response.text)
+
+19)NCAAFB Tournament Schedule
+import requests
+
+url = "https://api.sportradar.com/ncaafb/trial/v7/en/tournaments/77b49a1b-e3a0-4833-9ab0-799367dd97b1/schedule.json"
+
+headers = {
+    "accept": "application/json",
+    "x-api-key": "6dP4ysShCJmktrukYUWKueZNV9A6aL8tCU89ck2L"
+}
+
+response = requests.get(url, headers=headers)
+
+print(response.text)
+
+20)NCAAFB Tournament Summary
+import requests
+
+url = "https://api.sportradar.com/ncaafb/trial/v7/en/tournaments/77b49a1b-e3a0-4833-9ab0-799367dd97b1/summary.json"
+
+headers = {
+    "accept": "application/json",
+    "x-api-key": "6dP4ysShCJmktrukYUWKueZNV9A6aL8tCU89ck2L"
+}
+
+response = requests.get(url, headers=headers)
+
+print(response.text)
+
+21)NCAAFB Transfer Portal
+import requests
+
+url = "https://api.sportradar.com/ncaafb/trial/v7/en/league/transfer_portal.json"
+
+headers = {
+    "accept": "application/json",
+    "x-api-key": "6dP4ysShCJmktrukYUWKueZNV9A6aL8tCU89ck2L"
+}
+
+response = requests.get(url, headers=headers)
+
+print(response.text)
+
+
+22)NCAAFB Weekly Schedule
+
+import requests
+
+url = "https://api.sportradar.com/ncaafb/trial/v7/en/games/2025/REG/01/schedule.json"
+
+headers = {
+    "accept": "application/json",
+    "x-api-key": "6dP4ysShCJmktrukYUWKueZNV9A6aL8tCU89ck2L"
+}
+
+response = requests.get(url, headers=headers)
+
+print(response.text)
