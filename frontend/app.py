@@ -24,8 +24,8 @@ import requests
 # -----------------------------------------------------------------------------
 # API Client Configuration
 # -----------------------------------------------------------------------------
-API_BASE_URL = os.getenv('API_BASE_URL', 'https://YOUR_RENDER_DATA_SERVICE.onrender.com')
-LLM_API_BASE_URL = os.getenv('LLM_API_BASE_URL', 'https://YOUR_RENDER_LLM_SERVICE.onrender.com')
+API_BASE_URL = os.getenv('API_BASE_URL', 'https://ncaafb-data-api.onrender.com')
+LLM_API_BASE_URL = os.getenv('LLM_API_BASE_URL', 'https://ncaafb-llm-api.onrender.com')
 
 @st.cache_data(ttl=300)  # Cache for 5 minutes
 def fetch_api_data(endpoint: str, params: Optional[Dict] = None) -> Optional[Dict]:
