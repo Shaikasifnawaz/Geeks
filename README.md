@@ -1,65 +1,116 @@
-# NCAAFB Database Professor
+NCAAFB Data Platform — Architecture Overview
 
-A college football data analytics platform with an AI-powered database professor that can answer questions about teams, players, rankings, and statistics.
+This platform provides a complete NCAA Football data experience through interactive dashboards, structured APIs, and an AI-powered query engine (“Database Professor”).
+It is built with three coordinated services deployed on Render, all connected to a shared PostgreSQL database.
 
-## Deployment Instructions for Render.com
+🔵 Frontend (Streamlit Interface)
 
-### 1. Create Render Services
+URL: https://ncaafb-frontend.onrender.com
 
-1. Sign up at [render.com](https://render.com)
-2. Connect your GitHub account
-3. Create a new Web Service and select this repository
+This is the primary user-facing application where visitors can:
 
-### 2. Database Setup
+Explore NCAA football data through interactive dashboards
 
-1. Create a PostgreSQL database on Render
-2. Note the connection details (host, port, database name, user, password)
-3. Update the `.env` file in the `backend` directory with your database connection details:
-   ```
-   DB_HOST=dpg-d4nvetf5r7bs73cacul0-a.oregon-postgres.render.com
-   DB_PORT=5432
-   DB_NAME=ncaafb_databaseguvi
-   DB_USER=ncaafb_databaseguvi_user
-   DB_PASSWORD=DFwIzA9EYnj8W0fwwPY7mKs9XlF02XCi
-   ```
+View teams, players, rankings, and stats
 
-### 3. Environment Variables
+Ask natural language questions to the AI-powered database professor
 
-Set the following environment variables for all services:
+The frontend communicates with both the Data API and the LLM API to fetch structured data and generate insights.
 
-- `DB_HOST` - Your PostgreSQL host
-- `DB_PORT` - Your PostgreSQL port (usually 5432)
-- `DB_NAME` - Your database name
-- `DB_USER` - Your database user
-- `DB_PASSWORD` - Your database password
-- `GEMINI_API_KEY` - Your Google Gemini API key (for LLM service)
+🧠 LLM API (AI Query Engine)
 
-### 4. Service Configuration
+URL: https://ncaafb-llm-apii.onrender.com
 
-#### Data API Service
-- Build Command: `pip install -r requirements.txt`
-- Start Command: `gunicorn --bind 0.0.0.0:$PORT backend.data_api:app`
+This service processes natural language questions and converts them into intelligent, SQL-driven answers.
 
-#### LLM API Service
-- Build Command: `pip install -r requirements.txt`
-- Start Command: `gunicorn --bind 0.0.0.0:$PORT backend.llm_api:app`
+How It Works
 
-#### Frontend Service
-- Build Command: `pip install -r requirements.txt`
-- Start Command: `streamlit run frontend/app.py --server.port=$PORT --server.address=0.0.0.0`
+The frontend sends questions to the /query endpoint.
 
-### 5. Run Data Pipeline
+The LLM API:
 
-After setting up your database and environment variables, run the data pipeline to populate your database with data from SportsRadar:
+Interprets the question
 
-```bash
-python run_pipeline.py
-```
+Generates SQL queries
 
-This will fetch data from SportsRadar API and populate your database.
+Executes them on the PostgreSQL database
 
-### 6. Update Frontend Configuration
+Returns structured results and insights
 
-After deploying your backend services, update the frontend environment variables:
-- `API_BASE_URL` - URL of your Data API service
-- `LLM_API_BASE_URL` - URL of your LLM API service
+Request Format
+POST /query
+{
+  "question": "natural language question",
+  "model": "gemini-2.5-flash",
+  "max_results": 100
+}
+
+📊 Data API (Structured Data Service)
+
+URL: https://ncaafb-data-api.onrender.com
+
+This backend service exposes organized data endpoints that power the dashboards.
+
+Available Endpoints
+
+Teams: /api/teams
+
+Players: /api/players
+
+Player Statistics: /api/player-statistics
+
+Rankings: /api/rankings
+
+Seasons: /api/seasons
+
+Conferences & Divisions: /api/conferences, /api/divisions
+
+Venues: /api/venues
+
+Coaches: /api/coaches
+
+Summary Stats: /api/stats/summary
+
+These endpoints allow the frontend to render fast, structured, and reliable data views.
+
+🏗️ System Architecture Overview
+
+The platform is composed of three interconnected services:
+
+1️⃣ Frontend (Streamlit)
+
+Serves the user interface
+
+Pulls structured data from the Data API
+
+Sends natural language queries to the LLM API
+
+Renders dashboards and insight responses
+
+2️⃣ Data API
+
+Provides direct access to structured NCAA football datasets
+
+Performs standard DB queries
+
+Supports all frontend dashboards
+
+3️⃣ LLM API
+
+Converts natural language into SQL
+
+Executes SQL on PostgreSQL
+
+Returns intelligent insights
+
+All services use the same PostgreSQL database, ensuring data consistency across dashboards and AI-generated responses.
+
+🩺 Health Check Endpoints
+
+Use these URLs to verify service status:
+
+Frontend: https://ncaafb-frontend.onrender.com
+
+Data API: https://ncaafb-data-api.onrender.com/health
+
+LLM API: https://ncaafb-llm-apii.onrender.com/health
